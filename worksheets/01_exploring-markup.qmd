@@ -1,0 +1,13 @@
+---
+title: "Worksheets: Converting plain text to richly formatted document"
+format: typst
+filters:
+  - include-code-files
+---
+
+# Questions
+
+{{< pagebreak >}}
+
+```{include="analysis.qmd" filename="analysis.qmd"}
+```

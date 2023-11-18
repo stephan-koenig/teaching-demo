@@ -1,0 +1,146 @@
+---
+title: "MICB 2XX: Data science teaching demo"
+subtitle: "Dr. Stephan Koenig"
+execute:
+  freeze: false
+---
+
+```{r}
+#| label: setup
+#| echo: false
+
+library(conflicted)
+library(dplyr)
+library(fontawesome)
+library(fs)
+library(gt)
+library(lubridate)
+library(readr)
+library(stringr)
+library(tidyr)
+
+# Generate ids for each link to join into schedule
+resources_paths <- 
+  c(
+    path("pre-readings"),
+    path("slides"),
+    path("worksheets")
+  )
+
+resources <- 
+  tibble(
+    path = dir_ls(resources_paths, glob = "*.qmd"),
+    id = path |> path_file() |> str_extract("(\\d+).*$", group = 1),
+    type = path |> path_dir() |> str_replace("-", "_")
+  ) |>
+  pivot_wider(names_from = type, values_from = path)
+
+schedule <-
+  read_csv(
+    "data/schedule.csv",
+    show_col_types = FALSE
+  ) |>
+  mutate(wday = wday(date, label = TRUE, abbr = TRUE), .after = date) |> 
+  left_join(resources, by = join_by(id), na_matches = "never")
+```
+
+:::: {.columns}
+
+::: {.column width="75%"}
+Welcome to the webpage for the seminar **"First steps into reproducible bioinformatics"**!
+
+For context, this talk assumes that students in MICB 2XX: Data science have gained experience in R and RStudio, completed a "Diversity metrics" module, and now start one on "Reproducibility."
+This page contains the pre-readings, slides and other resources for this talk if you want to work along.
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="20%"}
+
+{{< qrcode https://bit.ly/td-website >}}
+
+:::
+::::
+
+```{r}
+#| label: schedule
+#| echo: false
+
+schedule |>
+  relocate(pre_readings, slides, worksheets, workspace, .after = topic) |>
+  gt() |> 
+  fmt_date(
+    date, 
+    date_style = "MMMd"
+  ) |> 
+  sub_missing(
+    missing_text = ""
+  ) |> 
+  fmt_url(
+    columns = pre_readings,
+    label = fa("book")
+  ) |> 
+  sub_missing(
+    columns = pre_readings,
+    missing_text = fa("book", fill_opacity = 0.1)
+  ) |> 
+  fmt_url(
+    columns = slides,
+    label = fa("window-maximize")
+  ) |>
+  sub_missing(
+    columns = slides,
+    missing_text = fa("window-maximize", fill_opacity = 0.1)
+  ) |>
+  fmt_url(
+    columns = workspace,
+    label = fa("laptop-code")
+  ) |>
+  sub_missing(
+    columns = workspace,
+    missing_text = fa("laptop-code", fill_opacity = 0.1)
+  ) |>
+  fmt_url(
+    columns = worksheets,
+    label = fa("file-alt")
+  ) |>
+  sub_missing(
+    columns = worksheets,
+    missing_text = fa("file-alt", fill_opacity = 0.1)
+  ) |>
+  fmt_url(
+    columns = social,
+    label = fa("padlet")
+  ) |>
+  sub_missing(
+    columns = social,
+    missing_text = fa("padlet", fill_opacity = 0.1)
+  ) |>
+  cols_hide(
+    id
+  ) |>
+  cols_label(
+    module = "Module",
+    date = "Date",
+    wday = "Day",
+    topic = "Topic",
+    pre_readings = "Pre",
+    slides = "Slides",
+    workspace = "Workspace",
+    worksheets = "Worksheet",
+    social = "Social"
+  ) |> 
+  tab_style(
+    style = list(
+      cell_text(weight = "bold")
+    ),
+    locations = list(
+      cells_stubhead(),
+      cells_column_labels()
+    )
+  ) |> 
+  tab_options(
+    quarto.disable_processing = TRUE
+  )
+```

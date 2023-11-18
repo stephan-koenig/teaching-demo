@@ -1,0 +1,13 @@
+---
+title: "First steps into bioinformatics"
+subtitle: "Seminar at MBIM, Nov 30, 2023"
+author:
+  - name: Stephan König
+    orcid: 0000-0002-1597-3628
+    email: stephan.koenig@ubc.ca
+    affiliations:
+      - name: Skylight, University of British Columbia
+        department: Computer Science
+format: revealjs
+---
+

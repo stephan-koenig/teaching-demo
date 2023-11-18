@@ -1,0 +1,15 @@
+---
+title: "Welcome!"
+description: "Getting your bearings in MICB 2XX"
+author: "Stephan Koenig"
+date: 2023-11-15
+categories:
+  - orientation
+  - resource
+---
+
+# Welcome to MICB 2XX!
+
+I am excited to welcome you to MICB 2XX and congratulations for making it in the MICB program!
+This short announcement is here to get you oriented to this course website and point out some important resources.
+Please take a look at the [syllabus](/syllabus.qmd) to gain an overview of the course and its requirements.

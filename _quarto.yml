@@ -1,0 +1,61 @@
+project:
+  type: website
+  output-dir: _site
+  post-render:
+    - R/combine-pdfs.R
+
+website:
+  title: "MICB 2XX: Data science teaching demo"
+  description: >
+    Resources for seminar by Stephan Koenig at the Department of Microbiology
+    and Immunology at the University of British Columbia
+  open-graph: true
+  twitter-card: true
+  site-url: https://stephan-koenig.github.io/teaching-demo
+  repo-url: https://github.com/stephan-koenig/teaching-demo
+  issue-url: https://github.com/stephan-koenig/teaching-demo/issues/new/choose
+  repo-actions: [source, edit, issue]
+  bread-crumbs: false
+  
+  page-footer:
+    left: >
+      This work by [Stephan Koenig](https://stephankoenig.me) is licensed
+      under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0)
+      {{< fa brands creative-commons >}} {{< fa brands creative-commons-by >}} 
+      {{< fa brands creative-commons-sa >}}
+    center: >
+      UBC's Point Grey Campus is located on the traditional, ancestral, and
+      unceded territory of the [xʷməθkʷəy̓ə
+      (Musqueam)](https://www.musqueam.bc.ca/) people.
+  
+  search: 
+    location: sidebar
+    type: overlay
+    
+  sidebar:
+    style: floating
+    search: true
+    contents:
+      - section: "Course information"
+        contents:
+          - href: syllabus.qmd
+            text: "Syllabus"
+          - href: index.qmd
+            text: "Schedule"
+      - section: "Resources"
+        contents:
+          - href: formatting.qmd
+            text: "Formatting"
+            
+  comments:
+    giscus:
+      repo: stephan-koenig/teaching-demo
+
+format:
+  html:
+    theme: [cosmo, styles/theme.scss]
+    code-copy: true
+    css: styles/styles.css
+    toc: true
+
+freeze: auto
