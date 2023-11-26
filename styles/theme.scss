@@ -1,12 +1,23 @@
 /*-- scss:uses --*/
 
+// @import url('https://fonts.cdnfonts.com/css/open-dyslexic');
+
 /*-- scss:functions --*/
 
 /*-- scss:defaults --*/
 
+// fonts
+// $font-family-sans-serif: 'Open-Dyslexic', sans-serif;
+
+.reveal .footer {
+  text-align: end;
+  background-color: rgba(256,256,256,0.8);
+}
+
 /*-- scss:mixins --*/
 
 /*-- scss:rules --*/
+
 figcaption.table.quarto-float-caption.quarto-float-tbl {
   text-align: left;
 }

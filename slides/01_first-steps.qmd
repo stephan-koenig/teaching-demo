@@ -1,5 +1,5 @@
 ---
-title: "First steps into bioinformatics"
+title: "First steps into reproducible bioinformatics"
 subtitle: "Seminar at MBIM, Nov 30, 2023"
 author:
   - name: Stephan König
@@ -8,6 +8,230 @@ author:
     affiliations:
       - name: Skylight, University of British Columbia
         department: Computer Science
-format: revealjs
+        
+format:
+  revealjs:
+    theme: [solarized, ../styles/theme.scss]
+    chalkboard: true
+    
+filters:
+  - include-code-files
+  - ../filters/new-page-links.lua
 ---
 
+```{r}
+#| label: setup
+
+library(conflicted)
+library(countdown)
+library(dplyr)
+conflicts_prefer(dplyr::filter)
+library(glue)
+library(gt)
+library(here)
+library(readr)
+library(stringr)
+
+asv_counts <- read_csv(here("worksheets/asv-counts.csv"))
+```
+
+# Mini lesson:<br>Reproducible reporting of computational analyses {background-color="#faa928"}
+
+## Learning outcomes
+
+-   Describe why combining natural language and code enables reproducible analysis and research.
+
+-   Discover how symbols and text convey formatting and the structure of a document.
+
+## Amplicon sequence variants
+
+Amplicon sequence variant species
+
+## Calculating species richness
+
+```{r}
+#| label: tbl-asv-counts
+
+asv_counts |>
+  gt()
+```
+
+```{r}
+#| label: asv-counts
+#| echo: true
+#| output-location: column-fragment
+#| code-line-numbers: "1|2|3|4"
+
+asv_counts |> 
+  select(depth_10_m) |>
+  filter(depth_10_m >= 1) |> 
+  nrow()
+```
+
+##  {#excel-error-1 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="top" background-size="150%"}
+
+::: footer
+[The Washington Post, April 16, 2013](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
+:::
+
+##  {#excel-error-2 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="bottom" background-size="150%"}
+
+::: footer
+[The Washington Post, April 16, 2013](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
+:::
+
+##  {#reproducibility-crisis .centered data-menu-title="Reproducibility crisis" background-image="../images/pnas.png" background-position="top" background-size="150%"}
+
+::: footer
+<https://doi.org/10.1073/pnas.1708272114>
+:::
+
+## Advantages
+
+-   Makes content and structure of a document explicit
+-   Enables flexible output to many formats
+-   Facilitates collaboration and reproducible workflows
+
+## Plain text and final document are separate files
+
+::: columns
+::: {.column width="50%"}
+Plain text
+
+{{< fa file-code title="A plain text file" size=8x >}}
+:::
+
+::: {.column width="50%"}
+Document
+
+{{< fa file-image title="A document file" size=8x >}}
+:::
+:::
+
+## {{< fa comments >}} Your Turn: Think-pair-share {background-color="#447099"}
+
+How would you solve this challenge?
+
+`r countdown(minutes = 2)`
+
+## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
+
+- Review the report of a fellow student.
+- Discover how symbols and text structure the document.
+- Mark the differences between `analysis.qmd` and the PDF output.
+
+::: columns
+::: {.column width="50%"}
+``` {include="../worksheets/analysis.qmd" filename="analysis.qmd" start-line="1" end-line="7"}
+```
+:::
+
+::: {.column width="50%"}
+<iframe src="../worksheets/analysis.pdf" width="100%" height="300"></iframe>
+:::
+:::
+
+## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
+
+-   Open <https://commonmark.org/help/tutorial/>
+-   Explore Markdown syntax
+-   Check out the Code formatting section
+
+`r countdown(minutes = 10)`
+
+## Markdown
+
+[Tools \| Markdown Guide](https://www.markdownguide.org/tools/)
+
+used everywhere
+
+quote from gruber
+
+## Quarto
+
+-   Is an open-source command line interface tool for scientific and technical publishing
+-   Provides a comprehensive set of feature out of the box
+-   Uses as source plain text formats (`.qmd`, `.rmd`, `.md`) or mixed formats (`.ipynb`/Jupyter notebook)
+-   Creates outputs including PDF, Word, HTML reports, books, websites, presentations & more
+-   Prevents fragmentation by interleaving of descriptive text, code and its outputs
+
+##  {#quarto-tools .centered data-menu-title="Quarto tools" background-iframe="https://quarto.org/docs/get-started/"}
+
+::: footer
+<https://quarto.org/docs/get-started/>
+:::
+
+## How Quarto works {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/b5217f2a-f129-4bf9-90dc-c5b9783d0ea8_rw_3840.png?h=a41d29d8ce363dbc153f3bcc1abe085a" background-size="contain" aria-label="A schematic representing rendering of Quarto documents from .qmd, to knitr or jupyter, to plain text markdown, then converted by pandoc into any number of output types including html, PDF, or Word document."}
+
+::: footer
+Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022.
+Illustrated by Allison Horst.
+:::
+
+## Pandoc is a Rosetta Stone {background-image="https://upload.wikimedia.org/wikipedia/commons/c/ca/Rosetta_Stone_BW.jpeg" background-size="35%"}
+
+::: footer
+Public domain via Wikimedia Commons
+:::
+
+## {{< fa laptop-code >}} Your Turn: Create your own website!!! {background-color="#447099"}
+
+```{r}
+#| echo: false
+
+workspace <- 
+  read_csv(here("data/schedule.csv"), show_col_types = FALSE) |> 
+  filter(id == 1) |>
+  pull(workspace)
+
+workspace <- glue('[{workspace |> str_remove("https://")}]({workspace})')
+```
+
+-   Open `r workspace`
+-   Edit `index.qmd`
+-   Click the "Render" button on top.
+-   Download the ouput directory `_site`
+-   Open Netlify Drop: [app.netlify.com/drop](https://app.netlify.com/drop)
+-   Drag and drop the downloaded `_site` onto Netlify Drop
+
+## Basic structure of Quarto document
+
+```` {.markdown code-line-numbers="|1-4|6-9|11-13"}
+---
+title: "Untitled"
+format: html
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into
+a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{{r}}
+1 + 1
+```
+````
+
+-   Metadata as YAML
+-   Text
+-   Code
+
+## {{< fa laptop-code >}} Your Turn {background-color="#447099"}
+
+-   Use as reference: <https://quarto.org/docs/reference/formats/html.html>
+-   Edit title and add your name as the author
+-   Change theme to `sketchy`
+-   Add TOC
+-   Create two sections, one with something you learned and your favourite thing
+-   Render it with Posit Cloud button
+
+## Resources
+
+-   [Daring Fireball: Markdown](https://daringfireball.net/projects/markdown/)
+-   [Interactive Commonmark Markdown tutorial](https://commonmark.org/help/tutorial/)
+-   [Quarto documentation](https://quarto.org/)
+-   [Get started with Quarto Workshop](https://rstudio-conf-2022.github.io/get-started-quarto/) with [introductory video](https://www.youtube.com/watch?v=yvi5uXQMvu4) and [material](https://github.com/jthomasmock/quarto-workshop)
+
+# Universal Design for Learning:<br>Embracing open source {background-color="#faa928"}
+
+# Teaching philosphy: Practicing expert behaviour {background-color="#faa928"}
