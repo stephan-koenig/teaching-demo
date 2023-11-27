@@ -50,6 +50,12 @@ website:
   comments:
     giscus:
       repo: stephan-koenig/teaching-demo
+      repo-id: R_kgDOKvMIQg
+      category: announcements
+      category-id: DIC_kwDOKvMIQs4CbSI0
+      mapping: title
+      reactions-enabled: true
+      loading: lazy
 
 format:
   html:
