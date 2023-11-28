@@ -43,9 +43,19 @@ asv_counts <- read_csv(here("worksheets/asv-counts.csv"))
 
 -   Discover how symbols and text convey formatting and the structure of a document.
 
-## Amplicon sequence variants
+## Characterizing microbial communities
 
-Amplicon sequence variant species
+::: center-xy
+Sequence barcode marker of sample
+
+{{< fa arrow-down title="Down arrow" >}}
+
+Group similar sequences<br>defining<br>amplicon sequence variants (ASVs)<br>ASV ≅ species
+
+{{< fa arrow-down title="Down arrow" >}}
+
+ASV counts table
+:::
 
 ## Calculating species richness
 
@@ -68,31 +78,49 @@ asv_counts |>
   nrow()
 ```
 
-##  {#excel-error-1 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="top" background-size="150%"}
+## How to report the results? {background-image="../images/word.png" background-size="75%" aria-label="An open Word document reads 'The species richness of the sample is 4.'"}
+
+## {{< fa comments >}} Your Turn: Think-pair-share {background-color="#447099"}
+
+How would ensure the correct reporting of your analysis?
+
+`r countdown(minutes = 2)`
+
+##  {#reproducibility-crisis .centered data-menu-title="Reproducibility crisis" background-image="../images/pnas.png" background-position="top" background-size="150%" aria-label="A PNAS article with the title 'Is science really facing a reproducibility crisis, and do we need it to?'"}
+
+::: footer
+[PNAS](https://doi.org/10.1073/pnas.1708272114)
+:::
+
+##  {#excel-error-1 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="top" background-size="150%" aria-label="A Washington Post article with the title 'Is the evidence for austerity based on an Excel spreadsheet error?'"}
 
 ::: footer
 [The Washington Post, April 16, 2013](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
 :::
 
-##  {#excel-error-2 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="bottom" background-size="150%"}
+::: notes
+-   Debt crisis in Greece due to the global financial crisis of 2007--2008.
+-   Greek austerity packages from 2010--2017 forced by members of EU.
+-   Greek economy suffered the longest recession of any advanced mixed economy.
+:::
+
+##  {#excel-error-2 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="bottom" background-size="150%" aria-label="The same Washington Post article showing error in an Excel sheet where 5 less cells were selected than necessary to calculate an average."}
+
+::: {.fragment .r-fit-text}
+60%
+:::
 
 ::: footer
 [The Washington Post, April 16, 2013](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
 :::
 
-##  {#reproducibility-crisis .centered data-menu-title="Reproducibility crisis" background-image="../images/pnas.png" background-position="top" background-size="150%"}
-
-::: footer
-<https://doi.org/10.1073/pnas.1708272114>
+::: notes
+-   Conclusion of original paper suspect.
+-   Contains Excel error only discovered in 2013.
+-   [Massive unemployment of youth in 2015 reported at 60%](https://www.theguardian.com/global/2015/jul/26/greece-youth-unemployment-debt-crisis-eurozone)
 :::
 
-## Advantages
-
--   Makes content and structure of a document explicit
--   Enables flexible output to many formats
--   Facilitates collaboration and reproducible workflows
-
-## Plain text and final document are separate files
+## Plain text and final document (PDF) are separate files
 
 ::: columns
 ::: {.column width="50%"}
@@ -102,23 +130,17 @@ Plain text
 :::
 
 ::: {.column width="50%"}
-Document
+PDF
 
-{{< fa file-image title="A document file" size=8x >}}
+{{< fa file-pdf title="A PDF file" size=8x >}}
 :::
 :::
-
-## {{< fa comments >}} Your Turn: Think-pair-share {background-color="#447099"}
-
-How would you solve this challenge?
-
-`r countdown(minutes = 2)`
 
 ## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
 
-- Review the report of a fellow student.
-- Discover how symbols and text structure the document.
-- Mark the differences between `analysis.qmd` and the PDF output.
+-   Review the report of a fellow student.
+-   Discover how symbols and text structure the document.
+-   Mark the differences between `analysis.qmd` and the PDF output.
 
 ::: columns
 ::: {.column width="50%"}
@@ -127,39 +149,26 @@ How would you solve this challenge?
 :::
 
 ::: {.column width="50%"}
-<iframe src="../worksheets/analysis.pdf" width="100%" height="300"></iframe>
+<iframe src="../worksheets/analysis.pdf" width="100%" height="300">
+
+</iframe>
 :::
 :::
 
 ## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
 
--   Open <https://commonmark.org/help/tutorial/>
--   Explore Markdown syntax
--   Check out the Code formatting section
+-   Take about 3 min to highlight any differences on your own.
+-   Compare your results with your neighbour and work with them on the other questions.
 
-`r countdown(minutes = 10)`
-
-## Markdown
-
-[Tools \| Markdown Guide](https://www.markdownguide.org/tools/)
-
-used everywhere
-
-quote from gruber
+`r countdown(minutes = 8)`
 
 ## Quarto
 
--   Is an open-source command line interface tool for scientific and technical publishing
--   Provides a comprehensive set of feature out of the box
--   Uses as source plain text formats (`.qmd`, `.rmd`, `.md`) or mixed formats (`.ipynb`/Jupyter notebook)
--   Creates outputs including PDF, Word, HTML reports, books, websites, presentations & more
--   Prevents fragmentation by interleaving of descriptive text, code and its outputs
-
-##  {#quarto-tools .centered data-menu-title="Quarto tools" background-iframe="https://quarto.org/docs/get-started/"}
-
-::: footer
-<https://quarto.org/docs/get-started/>
-:::
+-   Is an open-source tool for scientific and technical publishing.
+-   Creates outputs including PDF, Word, HTML reports, books, websites, presentations & more.
+-   Keeps analysis and report together by mixing natural language, code and its outputs.
+-   Makes content and structure of a document explicit
+-   Plain text facilitates collaboration and reproducible workflows
 
 ## How Quarto works {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/b5217f2a-f129-4bf9-90dc-c5b9783d0ea8_rw_3840.png?h=a41d29d8ce363dbc153f3bcc1abe085a" background-size="contain" aria-label="A schematic representing rendering of Quarto documents from .qmd, to knitr or jupyter, to plain text markdown, then converted by pandoc into any number of output types including html, PDF, or Word document."}
 
@@ -168,13 +177,42 @@ Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel
 Illustrated by Allison Horst.
 :::
 
-## Pandoc is a Rosetta Stone {background-image="https://upload.wikimedia.org/wikipedia/commons/c/ca/Rosetta_Stone_BW.jpeg" background-size="35%"}
-
-::: footer
-Public domain via Wikimedia Commons
+::: notes
+Pandoc is a Rosetta Stone.
 :::
 
-## {{< fa laptop-code >}} Your Turn: Create your own website!!! {background-color="#447099"}
+## Basic structure of Quarto document
+
+````{.markdown code-line-numbers="|1-4|6-9|11-13"}
+---
+title: "Untitled"
+format: html
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into
+a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{{r}}
+1 + 1
+```
+````
+
+-   Metadata as YAML with the format `key: value`
+-   Text
+-   Code
+
+## Markdown
+
+-   Simple expressive formatting with symbols and text.
+-   Used in many [apps and services](https://www.markdownguide.org/tools/), for example {{< fa brands discord title="Discord" >}} {{< fa brands slack title="Slack" >}} {{< fa brands github title= "GitHub" >}}
+
+:::{.fragment style="font-size: 75%;"}
+{{< include ../includes/_gruber-markdown-quote.qmd >}}
+:::
+
+## {{< fa laptop-code >}} Next lab: Create your own website!!! {background-color="#447099"}
 
 ```{r}
 #| echo: false
@@ -194,37 +232,6 @@ workspace <- glue('[{workspace |> str_remove("https://")}]({workspace})')
 -   Open Netlify Drop: [app.netlify.com/drop](https://app.netlify.com/drop)
 -   Drag and drop the downloaded `_site` onto Netlify Drop
 
-## Basic structure of Quarto document
-
-```` {.markdown code-line-numbers="|1-4|6-9|11-13"}
----
-title: "Untitled"
-format: html
----
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into
-a finished document. To learn more about Quarto see <https://quarto.org>.
-
-```{{r}}
-1 + 1
-```
-````
-
--   Metadata as YAML
--   Text
--   Code
-
-## {{< fa laptop-code >}} Your Turn {background-color="#447099"}
-
--   Use as reference: <https://quarto.org/docs/reference/formats/html.html>
--   Edit title and add your name as the author
--   Change theme to `sketchy`
--   Add TOC
--   Create two sections, one with something you learned and your favourite thing
--   Render it with Posit Cloud button
-
 ## Resources
 
 -   [Daring Fireball: Markdown](https://daringfireball.net/projects/markdown/)
@@ -232,6 +239,29 @@ a finished document. To learn more about Quarto see <https://quarto.org>.
 -   [Quarto documentation](https://quarto.org/)
 -   [Get started with Quarto Workshop](https://rstudio-conf-2022.github.io/get-started-quarto/) with [introductory video](https://www.youtube.com/watch?v=yvi5uXQMvu4) and [material](https://github.com/jthomasmock/quarto-workshop)
 
-# Universal Design for Learning:<br>Embracing open source {background-color="#faa928"}
+# Universal Design for Learning (UDL):<br>Embracing open source {background-color="#faa928"}
+
+::: notes
+[Universal design for learning fellows program](https://tlef.ubc.ca/application/special-call/universal-design-for-learning-fellows-program/)---2024 cohort
+UDL strives to provide multiple means for three principles of effective instruction.
+:::
+
+## Representation
+
+-   Open source tools support alt text for images.
+-   Easy to provide headings and descriptive hyperlinks.
+
+## Engagement
+
+-   Follow the **mastery learning** model, i.e., frequent practice, assessment and feedback.
+-   Use online assessment platform (e.g., [PrairieLearn](https://prairielearn.readthedocs.io/)) to support mastery learning at scale.
+-   Use authentic examples and assessments (for example, ePortfolio)
+-   Use relevant, widespread technologies, such as web technologies (HTML, CSS).
+-   Model inclusive practices in the way course is run (syllabus) and materials are provided.
+
+## Action and expression
+
+- Alternative ways of participating, e.g., discussion section on course website.
+- Increased expression and communication (Quarto offers a lot of flexibility).
 
 # Teaching philosphy: Practicing expert behaviour {background-color="#faa928"}
