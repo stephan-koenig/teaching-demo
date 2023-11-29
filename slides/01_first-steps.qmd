@@ -8,11 +8,16 @@ author:
     affiliations:
       - name: Skylight, University of British Columbia
         department: Computer Science
+        ringgold: 8166
+        isni: 0000000122889830
+        ror: https://ror.org/03rmrcq20
         
 format:
   revealjs:
-    theme: [solarized, ../styles/theme.scss]
+    theme: [default, ../styles/theme.scss]
     chalkboard: true
+    title-slide-attributes:
+      data-text-align: right
     
 filters:
   - include-code-files
@@ -26,13 +31,11 @@ library(conflicted)
 library(countdown)
 library(dplyr)
 conflicts_prefer(dplyr::filter)
-library(glue)
 library(gt)
 library(here)
 library(readr)
-library(stringr)
 
-asv_counts <- read_csv(here("worksheets/asv-counts.csv"))
+asv_counts <- read_csv(here("worksheets", "asv-counts.csv"))
 ```
 
 # Mini lesson:<br>Reproducible reporting of computational analyses {background-color="#faa928"}
@@ -43,10 +46,10 @@ asv_counts <- read_csv(here("worksheets/asv-counts.csv"))
 
 -   Discover how symbols and text convey formatting and the structure of a document.
 
-## Characterizing microbial communities
+## Microbiomes at different lake depths
 
 ::: center-xy
-Sequence barcode marker of sample
+Sequence barcode marker of each sample
 
 {{< fa arrow-down title="Down arrow" >}}
 
@@ -57,20 +60,22 @@ Group similar sequences<br>defining<br>amplicon sequence variants (ASVs)<br>A
 ASV counts table
 :::
 
-## Calculating species richness
+## Species richness at 10 m depth
 
+::: {layout-ncol="3"}
 ```{r}
 #| label: tbl-asv-counts
+#| tbl-cap: ASV counts
 
 asv_counts |>
   gt()
 ```
+:::
 
 ```{r}
 #| label: asv-counts
 #| echo: true
 #| output-location: column-fragment
-#| code-line-numbers: "1|2|3|4"
 
 asv_counts |> 
   select(depth_10_m) |>
@@ -86,91 +91,50 @@ How would ensure the correct reporting of your analysis?
 
 `r countdown(minutes = 2)`
 
-##  {#reproducibility-crisis .centered data-menu-title="Reproducibility crisis" background-image="../images/pnas.png" background-position="top" background-size="150%" aria-label="A PNAS article with the title 'Is science really facing a reproducibility crisis, and do we need it to?'"}
-
-::: footer
-[PNAS](https://doi.org/10.1073/pnas.1708272114)
-:::
-
-##  {#excel-error-1 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="top" background-size="150%" aria-label="A Washington Post article with the title 'Is the evidence for austerity based on an Excel spreadsheet error?'"}
-
-::: footer
-[The Washington Post, April 16, 2013](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
-:::
-
 ::: notes
--   Debt crisis in Greece due to the global financial crisis of 2007--2008.
--   Greek austerity packages from 2010--2017 forced by members of EU.
--   Greek economy suffered the longest recession of any advanced mixed economy.
+I would do Think-pair-share here, but due to time constraints, let's get some shoutouts.
 :::
 
-##  {#excel-error-2 .centered data-menu-title="Excel error" background-image="../images/washington-post.png" background-position="bottom" background-size="150%" aria-label="The same Washington Post article showing error in an Excel sheet where 5 less cells were selected than necessary to calculate an average."}
-
-::: {.fragment .r-fit-text}
-60%
-:::
-
-::: footer
-[The Washington Post, April 16, 2013](https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/)
-:::
-
-::: notes
--   Conclusion of original paper suspect.
--   Contains Excel error only discovered in 2013.
--   [Massive unemployment of youth in 2015 reported at 60%](https://www.theguardian.com/global/2015/jul/26/greece-youth-unemployment-debt-crisis-eurozone)
-:::
-
-## Plain text and final document (PDF) are separate files
-
-::: columns
-::: {.column width="50%"}
-Plain text
-
-{{< fa file-code title="A plain text file" size=8x >}}
-:::
-
-::: {.column width="50%"}
-PDF
-
-{{< fa file-pdf title="A PDF file" size=8x >}}
-:::
-:::
+## Do you want your grades to be reproducible? {.center .r-fit-text}
 
 ## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
 
 -   Review the report of a fellow student.
 -   Discover how symbols and text structure the document.
--   Mark the differences between `analysis.qmd` and the PDF output.
 
 ::: columns
 ::: {.column width="50%"}
+### Plain text
+
 ``` {include="../worksheets/analysis.qmd" filename="analysis.qmd" start-line="1" end-line="7"}
 ```
 :::
 
 ::: {.column width="50%"}
+### PDF
+
 <iframe src="../worksheets/analysis.pdf" width="100%" height="300">
 
 </iframe>
 :::
 :::
 
+::: notes
+Your worksheet has three pages.
+The first one contains the exercises.
+The second one has a plain text file printed on a grey background.
+The third contains the PDF output.
+I would like you to highlight any difference in text or symbols between the two files.
+:::
+
 ## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
 
--   Take about 3 min to highlight any differences on your own.
+-   Take about 2 minute to highlight differences between plain text and the PDF output.
 -   Compare your results with your neighbour and work with them on the other questions.
 
-`r countdown(minutes = 8)`
+`r countdown(minutes = 5)`
 
-## Quarto
-
--   Is an open-source tool for scientific and technical publishing.
--   Creates outputs including PDF, Word, HTML reports, books, websites, presentations & more.
--   Keeps analysis and report together by mixing natural language, code and its outputs.
--   Makes content and structure of a document explicit
--   Plain text facilitates collaboration and reproducible workflows
-
-## How Quarto works {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/b5217f2a-f129-4bf9-90dc-c5b9783d0ea8_rw_3840.png?h=a41d29d8ce363dbc153f3bcc1abe085a" background-size="contain" aria-label="A schematic representing rendering of Quarto documents from .qmd, to knitr or jupyter, to plain text markdown, then converted by pandoc into any number of output types including html, PDF, or Word document."}
+## How Quarto works {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/c2ef45f1-4a68-4c7a-a43f-bdcf0f90e104_rw_3840.png?h=783eba914284e5adfb9feadcf4ba5f1e" background-size="contain" aria-label="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto."}
 
 ::: footer
 Artwork from "Hello, Quarto" keynote by Julia Lowndes and Mine Çetinkaya-Rundel, presented at RStudio Conference 2022.
@@ -178,72 +142,36 @@ Illustrated by Allison Horst.
 :::
 
 ::: notes
-Pandoc is a Rosetta Stone.
+Pandoc is a universal translator.
 :::
-
-## Basic structure of Quarto document
-
-````{.markdown code-line-numbers="|1-4|6-9|11-13"}
----
-title: "Untitled"
-format: html
----
-
-## Quarto
-
-Quarto enables you to weave together content and executable code into
-a finished document. To learn more about Quarto see <https://quarto.org>.
-
-```{{r}}
-1 + 1
-```
-````
-
--   Metadata as YAML with the format `key: value`
--   Text
--   Code
 
 ## Markdown
 
 -   Simple expressive formatting with symbols and text.
--   Used in many [apps and services](https://www.markdownguide.org/tools/), for example {{< fa brands discord title="Discord" >}} {{< fa brands slack title="Slack" >}} {{< fa brands github title= "GitHub" >}}
+-   Used in many [apps and services](https://www.markdownguide.org/tools/), for example {{< fa brands discord title="Discord" >}} {{< fa brands slack title="Slack" >}} {{< fa brands github title= "GitHub" >}}.
 
-:::{.fragment style="font-size: 75%;"}
-{{< include ../includes/_gruber-markdown-quote.qmd >}}
++-------------------------------------+
+| Markdown syntax                     |
++=====================================+
+| # \# Heading 1                      |
++-------------------------------------+
+| ## \## Heading 2                    |
++-------------------------------------+
+| **\*\*strong\*\***                  |
++-------------------------------------+
+| *\*emphasized\**                    |
++-------------------------------------+
+
+## {{< fa laptop-code >}} Next lab: Create your own website! {background-color="#447099"}
+
+::: notes
+Demo MICB: 2XX website as an example of a Quarto project.
 :::
-
-## {{< fa laptop-code >}} Next lab: Create your own website!!! {background-color="#447099"}
-
-```{r}
-#| echo: false
-
-workspace <- 
-  read_csv(here("data/schedule.csv"), show_col_types = FALSE) |> 
-  filter(id == 1) |>
-  pull(workspace)
-
-workspace <- glue('[{workspace |> str_remove("https://")}]({workspace})')
-```
-
--   Open `r workspace`
--   Edit `index.qmd`
--   Click the "Render" button on top.
--   Download the ouput directory `_site`
--   Open Netlify Drop: [app.netlify.com/drop](https://app.netlify.com/drop)
--   Drag and drop the downloaded `_site` onto Netlify Drop
-
-## Resources
-
--   [Daring Fireball: Markdown](https://daringfireball.net/projects/markdown/)
--   [Interactive Commonmark Markdown tutorial](https://commonmark.org/help/tutorial/)
--   [Quarto documentation](https://quarto.org/)
--   [Get started with Quarto Workshop](https://rstudio-conf-2022.github.io/get-started-quarto/) with [introductory video](https://www.youtube.com/watch?v=yvi5uXQMvu4) and [material](https://github.com/jthomasmock/quarto-workshop)
 
 # Universal Design for Learning (UDL):<br>Embracing open source {background-color="#faa928"}
 
 ::: notes
-[Universal design for learning fellows program](https://tlef.ubc.ca/application/special-call/universal-design-for-learning-fellows-program/)---2024 cohort
-UDL strives to provide multiple means for three principles of effective instruction.
+[Universal design for learning fellows program](https://tlef.ubc.ca/application/special-call/universal-design-for-learning-fellows-program/)---2024 cohort UDL strives to provide multiple means for three principles of effective instruction.
 :::
 
 ## Representation
@@ -259,9 +187,13 @@ UDL strives to provide multiple means for three principles of effective instruct
 -   Use relevant, widespread technologies, such as web technologies (HTML, CSS).
 -   Model inclusive practices in the way course is run (syllabus) and materials are provided.
 
+## {#prairielearn data-menu-title="PrairieLearn" background-iframe="https://www.prairielearn.com/" background-interactive="true"}
+
 ## Action and expression
 
-- Alternative ways of participating, e.g., discussion section on course website.
-- Increased expression and communication (Quarto offers a lot of flexibility).
+-   Alternative ways of participating, e.g., discussion section on course website.
+-   Increased expression and communication (Quarto offers a lot of flexibility).
+
+##  {#comments data-meny-title="Comments" background-iframe="https://stephan-koenig.github.io/teaching-demo" background-interactive="true"}
 
 # Teaching philosphy: Practicing expert behaviour {background-color="#faa928"}
