@@ -25,7 +25,8 @@ resources_paths <-
   c(
     path("pre-readings"),
     path("slides"),
-    path("worksheets")
+    path("worksheets"),
+    path("labs")
   )
 
 resources <- 
@@ -45,31 +46,27 @@ schedule <-
   left_join(resources, by = join_by(id), na_matches = "never")
 ```
 
-:::: {.columns}
-
+::: columns
 ::: {.column width="75%"}
 Welcome to the webpage for the seminar **"First steps into reproducible bioinformatics"**!
 
-For context, this talk assumes that students in MICB 2XX: Data science have gained experience in R and RStudio, completed a "Diversity metrics" module, and now start one on "Reproducibility."
-This page contains the pre-readings, slides and other resources for this talk if you want to work along.
+For context, this talk assumes that students in MICB 2XX: Data science have gained experience in R and RStudio, completed a "Diversity metrics" module, and now start one on "Reproducibility." This page contains the slides and worksheets for this talk if you want to work along.
 :::
 
 ::: {.column width="5%"}
 :::
 
 ::: {.column width="20%"}
-
 {{< qrcode https://bit.ly/td-website >}}
-
 :::
-::::
+:::
 
 ```{r}
 #| label: schedule
 #| echo: false
 
 schedule |>
-  relocate(pre_readings, slides, worksheets, workspace, .after = topic) |>
+  relocate(pre_readings, slides, worksheets, workspace, labs, .after = topic) |>
   gt() |> 
   fmt_date(
     date, 
@@ -95,11 +92,11 @@ schedule |>
     missing_text = fa("window-maximize", fill_opacity = 0.1)
   ) |>
   fmt_url(
-    columns = workspace,
+    columns = labs,
     label = fa("laptop-code")
   ) |>
   sub_missing(
-    columns = workspace,
+    columns = labs,
     missing_text = fa("laptop-code", fill_opacity = 0.1)
   ) |>
   fmt_url(
@@ -119,7 +116,7 @@ schedule |>
     missing_text = fa("padlet", fill_opacity = 0.1)
   ) |>
   cols_hide(
-    id
+    columns = c(id, workspace)
   ) |>
   cols_label(
     module = "Module",
@@ -128,7 +125,7 @@ schedule |>
     topic = "Topic",
     pre_readings = "Pre",
     slides = "Slides",
-    workspace = "Workspace",
+    labs = "Lab",
     worksheets = "Worksheet",
     social = "Social"
   ) |> 
