@@ -20,23 +20,26 @@ You will compare the two documents to investigate which parts of the plain text 
 2.  Formatting in this PDF includes different levels of headings and *emphasized* (in italics) and **strong** statements (in bold).
     What parts of `analysis.qmd` convey the formatting information for these elements?
 
-3.  The output document has a table referenced in the text.
+3.  Can you find the R output of the analysis in one of the paragraphs in the PDF?
+    There are two ways in which code is integrated into `analysis.qmd`.
+    What are they, and how do they differ?
+
+4.  **Bonus: Did you uncover the error in the analysis?**
+
+    ---
+    If you have enough time in class, continue with the questions below. Otherwise, answer them at home.
+    ---
+
+5.  The output document has a table referenced in the text.
     What are the two components necessary for creating the reference?
 
-4.  Can you find the R output of the analysis in one of the paragraphs in the PDF?
-    There are two ways in which code is integrated into `analysis.qmd`. What are they, and how do they differ?
-
-5.  At the beginning of `analysis.qmd` is a section fenced by `---`.
+6.  At the beginning of `analysis.qmd` is a section fenced by `---`.
     What do you believe this section is for, and do you notice anything special about how the information is organized?
     Now compare with the lines starting with `#|`.
     Do you notice any similarities or differences?
 
-```{=typst}
-6.  There are two blocks fenced by ```` ```{r} ```` and ```` ``` ```` in `analysis.qmd`, but only one of them appears in the output.
+7.  There are two blocks fenced by ```` ```{r} ```` and ```` ``` ```` in `analysis.qmd`, but only one of them appears in the output.
     How is this controlled?
-```
-
-7.  **Bonus: Did you uncover the error in the analysis?**
 
 {{< pagebreak >}}
 
