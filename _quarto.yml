@@ -38,8 +38,10 @@ website:
     contents:
       - section: "Course information"
         contents:
-          # - href: syllabus.qmd
-          #   text: "Syllabus"
+          - href: announcements.qmd
+            text: "Announcements"
+          - href: syllabus.qmd
+            text: "Syllabus"
           - href: index.qmd
             text: "Schedule"
       - section: "Resources"
