@@ -1,6 +1,6 @@
 ---
 title: "Pre-reading: Markdown"
-subtitle: "Due: Nov 30, 2023"
+subtitle: "Due: Dec 1, 2023"
 ---
 
 # Overview

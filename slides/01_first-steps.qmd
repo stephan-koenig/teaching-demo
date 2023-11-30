@@ -8,17 +8,14 @@ author:
     affiliations:
       - name: Skylight, University of British Columbia
         department: Computer Science
-        ringgold: 8166
-        isni: 0000000122889830
-        ror: https://ror.org/03rmrcq20
         
 format:
   revealjs:
     theme: [default, ../styles/theme.scss]
     chalkboard: true
-    title-slide-attributes:
-      data-text-align: right
-    
+    controls: true
+    footer: "[bit.ly/td-website](https://bit.ly/td-website)"
+
 filters:
   - include-code-files
   - ../filters/new-page-links.lua
@@ -46,6 +43,10 @@ asv_counts <- read_csv(here("worksheets", "asv-counts.csv"))
 
 -   Discover how symbols and text convey formatting and the structure of a document.
 
+::: notes
+-   Explored ways of describing microbial communities using various diversity metrics.
+:::
+
 ## Microbiomes at different lake depths
 
 ::: center-xy
@@ -58,6 +59,14 @@ Group similar sequences<br>defining<br>amplicon sequence variants (ASVs)<br>A
 {{< fa arrow-down title="Down arrow" >}}
 
 ASV counts table
+:::
+
+::: notes
+-   Extract DNA from the lake samples and a sequence barcode marker.
+-   Group similar sequences into amplicon sequence variants, i.e., ASVs.
+-   ASV approximates a species.
+-   Record number of sequences in an ASV count table.
+-   Simplest way to describe is species richness.
 :::
 
 ## Species richness at 10 m depth
@@ -83,19 +92,39 @@ asv_counts |>
   nrow()
 ```
 
+::: notes
+-   Draw a cross-section of the lake and indicate samples
+-   Counts for each ASV by row.
+-   Counts for each sample by column.
+-   Let's calculate the species richness at 10 m.
+-   We select the corresponding column.
+-   An ASV is present only if the count is at least 1.
+-   Count of the number of rows left.
+:::
+
 ## How to report the results? {background-image="../images/word.png" background-size="75%" aria-label="An open Word document reads 'The species richness of the sample is 4.'"}
+
+::: notes
+-   At some point you will have to report your results, for example for an assignment.
+-   What happens if your analysis changes? How do you keep track that the most up-to-date number is in your report?
+:::
 
 ## {{< fa comments >}} Your Turn: Think-pair-share {background-color="#447099"}
 
 How would ensure the correct reporting of your analysis?
 
+-   Think for one minute about possible solutions by yourself.
+-   Then discuss with your neighbour your solution.
+
 `r countdown(minutes = 2)`
 
-::: notes
-I would do Think-pair-share here, but due to time constraints, let's get some shoutouts.
-:::
-
 ## Do you want your grades to be reproducible? {.center .r-fit-text}
+
+::: notes
+-   One solution is to mix the analysis with the reporting, i.e., mix code with natural language.
+-   Code if often written in plain text.
+-   One approach is to write everything in plain text. But how can we format the text?
+:::
 
 ## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
 
@@ -106,7 +135,7 @@ I would do Think-pair-share here, but due to time constraints, let's get some sh
 ::: {.column width="50%"}
 ### Plain text
 
-``` {include="../worksheets/analysis.qmd" filename="analysis.qmd" start-line="1" end-line="7"}
+``` {include="../worksheets/analysis.qmd" filename="analysis.qmd" start-line="1" end-line="20"}
 ```
 :::
 
@@ -120,19 +149,44 @@ I would do Think-pair-share here, but due to time constraints, let's get some sh
 :::
 
 ::: notes
-Your worksheet has three pages.
-The first one contains the exercises.
-The second one has a plain text file printed on a grey background.
-The third contains the PDF output.
-I would like you to highlight any difference in text or symbols between the two files.
+-   For our worksheet, we will act like we review the analysis of a friend.
+-   Your worksheet has three pages.
+-   The second one has a plain text file printed on a grey background called `analysis.qmd`.
+-   The third contains the PDF output of that file.
+-   The first one contains the exercises. We will work on the first 4.
+-   Please highlight any difference in text or symbols between the two files.
+-   *Demonstrate highlighting*.
 :::
 
 ## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
 
--   Take about 2 minute to highlight differences between plain text and the PDF output.
--   Compare your results with your neighbour and work with them on the other questions.
+-   Take about 2 minute to highlight differences between plain text and the PDF output (exercise 1).
+-   Compare your results with your neighbour and work with them on exercise 2--4.
 
 `r countdown(minutes = 5)`
+
+::: notes
+**Wrap up**: *Before proceeding, point out how students could understand some of the structure and formatting by contrasting input and output, even though it might have been challenging. You are constantly practicing a skill you will need for coding all the time: reading and understanding someone's code.
+:::
+
+## {{< fa brands markdown >}} Markdown
+
+::: fragment
+-   Simple expressive formatting with symbols and text.
+-   Used in many [apps and services](https://www.markdownguide.org/tools/), for example {{< fa brands discord title="Discord" >}} {{< fa brands slack title="Slack" >}} {{< fa brands github title= "GitHub" >}}.
+:::
+
++-------------------------------------+
+| Markdown syntax                     |
++=====================================+
+| # \# Heading 1                      |
++-------------------------------------+
+| ## \#\# Heading 2                   |
++-------------------------------------+
+| **\*\*strong\*\***                  |
++-------------------------------------+
+| *\*emphasized\**                    |
++-------------------------------------+
 
 ## How Quarto works {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/c2ef45f1-4a68-4c7a-a43f-bdcf0f90e104_rw_3840.png?h=783eba914284e5adfb9feadcf4ba5f1e" background-size="contain" aria-label="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto."}
 
@@ -142,58 +196,102 @@ Illustrated by Allison Horst.
 :::
 
 ::: notes
-Pandoc is a universal translator.
+-   Offers many different output formats, not only PDF.
+-   One option is to create HTML including websites.
+-   In fact, this entire website was made in Quarto!
 :::
 
-## Markdown
+##  {#down-the-rabbit-hole-1 data-meny-title="Down the rabbit hole" background-iframe="https://stephan-koenig.github.io/teaching-demo/" background-interactive="true"}
 
--   Simple expressive formatting with symbols and text.
--   Used in many [apps and services](https://www.markdownguide.org/tools/), for example {{< fa brands discord title="Discord" >}} {{< fa brands slack title="Slack" >}} {{< fa brands github title= "GitHub" >}}.
+##  {#down-the-rabbit-hole-2 .centered data-menu-title="Down the rabbit hole"}
 
-+-------------------------------------+
-| Markdown syntax                     |
-+=====================================+
-| # \# Heading 1                      |
-+-------------------------------------+
-| ## \## Heading 2                    |
-+-------------------------------------+
-| **\*\*strong\*\***                  |
-+-------------------------------------+
-| *\*emphasized\**                    |
-+-------------------------------------+
-
-## {{< fa laptop-code >}} Next lab: Create your own website! {background-color="#447099"}
+``` {include="../index.qmd" filename="index.qmd" start-line="1" end-line="15"}
+```
 
 ::: notes
 Demo MICB: 2XX website as an example of a Quarto project.
 :::
 
-# Universal Design for Learning (UDL):<br>Embracing open source {background-color="#faa928"}
+## {{< fa laptop-code >}} Next lab: Create your own website! {background-color="#447099"}
+
+::: incremental
+-   Build a professional ePortfolio online.
+-   Reflect on and record your growth across the MICB program.
+-   Demonstrate your coding and collaboration skills.
+-   Showcase your work as a developing microbiologist and immunologist to future employers.
+:::
 
 ::: notes
-[Universal design for learning fellows program](https://tlef.ubc.ca/application/special-call/universal-design-for-learning-fellows-program/)---2024 cohort UDL strives to provide multiple means for three principles of effective instruction.
+Learn relevant technologies for web development and reproducible workflows using industry-standard tools.
+:::
+
+# Universal Design for Learning:<br>Embracing open source {background-color="#faa928"}
+
+::: notes
+UDL strives to provide multiple means for three principles of effective instruction.
+:::
+
+##  {#representation data-menu-title="Representation" background-image="https://www.cast.org/binaries/content/gallery/castm/our-work/brain-recognition-networks.png"}
+
+::: footer
+CAST (2018). [Universal Design for Learning Guidelines version 2.2](http://udlguidelines.cast.org)
 :::
 
 ## Representation
 
 -   Open source tools support alt text for images.
 -   Easy to provide headings and descriptive hyperlinks.
+-   Support for different file formats.
+
+##  {#engagement data-menu-title="Engagement" background-image="https://www.cast.org/binaries/content/gallery/castm/our-work/brain-affective-networks.png"}
+
+::: footer
+CAST (2018). [Universal Design for Learning Guidelines version 2.2](http://udlguidelines.cast.org)
+:::
 
 ## Engagement
 
 -   Follow the **mastery learning** model, i.e., frequent practice, assessment and feedback.
 -   Use online assessment platform (e.g., [PrairieLearn](https://prairielearn.readthedocs.io/)) to support mastery learning at scale.
+    -   Academic integrity by randomization.
+    -   Use questions in practices and exams.
 -   Use authentic examples and assessments (for example, ePortfolio)
 -   Use relevant, widespread technologies, such as web technologies (HTML, CSS).
 -   Model inclusive practices in the way course is run (syllabus) and materials are provided.
 
-## {#prairielearn data-menu-title="PrairieLearn" background-iframe="https://www.prairielearn.com/" background-interactive="true"}
+##  {#prairielearn data-menu-title="PrairieLearn" background-iframe="https://www.prairielearn.com/" background-interactive="true"}
+
+##  {#action-and-expression data-menu-title="Action and expression" background-image="https://www.cast.org/binaries/content/gallery/castm/our-work/brain-strategic-networks.png"}
+
+::: footer
+CAST (2018). [Universal Design for Learning Guidelines version 2.2](http://udlguidelines.cast.org)
+:::
 
 ## Action and expression
 
 -   Alternative ways of participating, e.g., discussion section on course website.
 -   Increased expression and communication (Quarto offers a lot of flexibility).
+-   Accommodations supported by PrairieLearn.
 
-##  {#comments data-meny-title="Comments" background-iframe="https://stephan-koenig.github.io/teaching-demo" background-interactive="true"}
+## Open education resources
+
+-   Affordability is an accessibility issue.
+-   Uses open source material makes material more accessible.
+-   Cloud computing for accessibility.
+-   Support for desktop and mobile.
+-   Collect feedback on the relevant pages.
+-   [UBC OER Fund](https://oerfund.open.ubc.ca/)
+
+##  {#comments-1 data-meny-title="Comments" background-iframe="https://stephan-koenig.github.io/teaching-demo/posts/welcome/" background-interactive="true"}
+
+##  {data-meny-title="Comments" background-iframe="https://github.com/stephan-koenig/teaching-demo/discussions/5" background-interactive="true"}
+
+## We are not alone: UDL community of practice {.center}
+
+[Universal design for learning fellows program](https://tlef.ubc.ca/application/special-call/universal-design-for-learning-fellows-program/)---2024 cohort.
+
+::: notes
+There is always more to learn from our colleagues.
+:::
 
 # Teaching philosphy: Practicing expert behaviour {background-color="#faa928"}

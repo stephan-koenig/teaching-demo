@@ -9,6 +9,15 @@
 // fonts
 // $font-family-sans-serif: 'Open-Dyslexic', sans-serif;
 
+/*-- scss:mixins --*/
+
+/*-- scss:rules --*/
+
+figcaption.table.quarto-float-caption.quarto-float-tbl {
+  text-align: left;
+}
+
+// Opaque background for footer for contrast with backgound images
 .reveal .footer {
   text-align: end;
   background-color: rgba(256,256,256,0.8);
@@ -20,12 +29,4 @@
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-}
-
-/*-- scss:mixins --*/
-
-/*-- scss:rules --*/
-
-figcaption.table.quarto-float-caption.quarto-float-tbl {
-  text-align: left;
 }
