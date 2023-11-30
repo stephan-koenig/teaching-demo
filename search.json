@@ -95,7 +95,7 @@
     "href": "slides/01_first-steps.html#representation-1",
     "title": "First steps into reproducible bioinformatics",
     "section": "Representation",
-    "text": "Representation\n\nOpen source tools support alt text for images.\nEasy to provide headings and descriptive hyperlinks.\nSupport for different file formats."
+    "text": "Representation\n\n\nOpen source tools support alt text for images.\nEasy to provide headings and descriptive hyperlinks.\nSupport for different file formats and integrating other media."
   },
   {
     "objectID": "slides/01_first-steps.html#engagement",
@@ -109,7 +109,14 @@
     "href": "slides/01_first-steps.html#engagement-1",
     "title": "First steps into reproducible bioinformatics",
     "section": "Engagement",
-    "text": "Engagement\n\nFollow the mastery learning model, i.e., frequent practice, assessment and feedback.\nUse online assessment platform (e.g., PrairieLearn) to support mastery learning at scale.\n\nAcademic integrity by randomization.\nUse questions in practices and exams.\n\nUse authentic examples and assessments (for example, ePortfolio)\nUse relevant, widespread technologies, such as web technologies (HTML, CSS).\nModel inclusive practices in the way course is run (syllabus) and materials are provided."
+    "text": "Engagement\n\n\nFollow the mastery learning model, i.e., frequent practice, assessment and feedback.\nUse online assessment platform (e.g., PrairieLearn) to support mastery learning at scale.\n\nAcademic integrity by randomization.\nUse questions in practices and exams."
+  },
+  {
+    "objectID": "slides/01_first-steps.html#engagement-2",
+    "href": "slides/01_first-steps.html#engagement-2",
+    "title": "First steps into reproducible bioinformatics",
+    "section": "Engagement",
+    "text": "Engagement\n\n\nUse authentic examples and assessments (for example, ePortfolio).\nUse relevant, widespread technologies and industry standards, such as HTML, CSS, Git and GitHub, in a framework that can be adapted to any bioinformatics pipeline.\nModel inclusive practices in the way course is run and materials are provided."
   },
   {
     "objectID": "slides/01_first-steps.html#action-and-expression",
@@ -123,14 +130,7 @@
     "href": "slides/01_first-steps.html#action-and-expression-1",
     "title": "First steps into reproducible bioinformatics",
     "section": "Action and expression",
-    "text": "Action and expression\n\nAlternative ways of participating, e.g., discussion section on course website.\nIncreased expression and communication (Quarto offers a lot of flexibility).\nAccommodations supported by PrairieLearn."
-  },
-  {
-    "objectID": "slides/01_first-steps.html#open-education-resources",
-    "href": "slides/01_first-steps.html#open-education-resources",
-    "title": "First steps into reproducible bioinformatics",
-    "section": "Open education resources",
-    "text": "Open education resources\n\nAffordability is an accessibility issue.\nUses open source material makes material more accessible.\nCloud computing for accessibility.\nSupport for desktop and mobile.\nCollect feedback on the relevant pages.\nUBC OER Fund"
+    "text": "Action and expression\n\n\nAlternative ways of participating, e.g., discussion section on course website.\nIncreased expression and communication (open source platforms offer a lot of flexibility).\nAccommodations supported by online assessment platforms.\n\n\n\n\nAffordability is an accessibility issue.\nUses open source material makes material more accessible.\nCloud computing for accessibility.\nSupport for desktop and mobile.\nCollect feedback on the relevant pages.\nUBC OER Fund"
   },
   {
     "objectID": "slides/01_first-steps.html#we-are-not-alone-udl-community-of-practice",
@@ -138,6 +138,13 @@
     "title": "First steps into reproducible bioinformatics",
     "section": "We are not alone: UDL community of practice",
     "text": "We are not alone: UDL community of practice\nUniversal design for learning fellows program—2024 cohort.\n\nThere is always more to learn from our colleagues."
+  },
+  {
+    "objectID": "slides/01_first-steps.html#acknowlegements",
+    "href": "slides/01_first-steps.html#acknowlegements",
+    "title": "First steps into reproducible bioinformatics",
+    "section": "Acknowlegements",
+    "text": "Acknowlegements\n\nTracy Kion and the search committee\nHannah Wong\nKaren Smith\n\n\n\nbit.ly/td-website"
   },
   {
     "objectID": "formatting.html",
