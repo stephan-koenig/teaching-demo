@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.514">
+  <meta name="generator" content="quarto-1.4.526">
 
   <meta name="author" content="Stephan König">
   <title>MICB 2XX: Data science teaching demo - First steps into reproducible bioinformatics</title>
@@ -483,10 +483,10 @@ Stephan König <a href="https://orcid.org/0000-0002-1597-3628" class="quarto-tit
 <h2>Species richness at 10 m depth</h2>
 <div class="quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="cell quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;text-align: center;">
 <div id="tbl-asv-counts" class="cell">
 <figure class="quarto-float quarto-float-tbl">
-<figcaption class="table quarto-float-caption quarto-float-tbl" id="tbl-asv-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-asv-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: ASV counts
 </figcaption>
 <div aria-describedby="tbl-asv-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -979,10 +979,10 @@ Table&nbsp;1: ASV counts
 </div>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>asv_counts <span class="sc">|&gt;</span> </span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">select</span>(depth_10_m) <span class="sc">|&gt;</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="fu">filter</span>(depth_10_m <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>asv_counts <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a></a>  <span class="fu">select</span>(depth_10_m) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">filter</span>(depth_10_m <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
