@@ -7,6 +7,12 @@ Source code for the MICB 2XX demo course website for the teaching seminar by Dr.
 - Files belonging to one unit should be named after the following pattern: `<id>_<file-name>`.
 - `id` is a unique identifier to join tables for all related resources to produce the schedule table in `index.qmd`.
 
+## Setup
+
+We recommend developing content locally on your computer in a container accessed by [Visual Studio Code](https://code.visualstudio.com/).
+Follow the setup instructions outlined in [Developing inside a Container using Visual Studio Code Remote Development](https://code.visualstudio.com/docs/devcontainers/containers) including the installation of Docker and the VS Code extension [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+After cloning this repo locally to your computer, open the directory using the command **Dev Containers: Open Folder in Container…** from the Command Palette in VS Code.
+
 ## Attribution
 
 This website design is based on:

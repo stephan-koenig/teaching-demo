@@ -1,3 +1,6 @@
+Depends:
+  httpgd,
+  languageserver
 Suggests:
   devtools,
   languageserver,

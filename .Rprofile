@@ -1,6 +1,4 @@
-# Use global settings
-source("~/.Rprofile")
-
+# Use Posit Package Manager
 options(repos = c(PPM = "https://packagemanager.posit.co/cran/latest"))
 
 # Use renv
