@@ -109,7 +109,7 @@ asv_counts |>
 -   What happens if your analysis changes? How do you keep track that the most up-to-date number is in your report?
 :::
 
-## {{< fa comments >}} Your Turn: Think-pair-share {background-color="#447099"}
+## {{< fa comments >}} Your Turn: Think-pair-share {.activity-background}
 
 How would ensure the correct reporting of your analysis?
 
@@ -126,7 +126,7 @@ How would ensure the correct reporting of your analysis?
 -   One approach is to write everything in plain text. But how can we format the text?
 :::
 
-## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
+## {{< fa file-alt >}} Your Turn: Worksheet {.activity-background}
 
 -   Review the report of a fellow student.
 -   Discover how symbols and text structure the document.
@@ -158,7 +158,7 @@ How would ensure the correct reporting of your analysis?
 -   *Demonstrate highlighting*.
 :::
 
-## {{< fa file-alt >}} Your Turn: Worksheet {background-color="#447099"}
+## {{< fa file-alt >}} Your Turn: Worksheet {.activity-background}
 
 -   Take about 2 minute to highlight differences between plain text and the PDF output (exercise 1).
 -   Compare your results with your neighbour and work with them on exercise 2--4.

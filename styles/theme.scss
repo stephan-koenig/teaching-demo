@@ -6,7 +6,10 @@
 
 /*-- scss:defaults --*/
 
-// fonts
+// Colours
+$activity-color:  #447099;
+
+// Fonts
 // $font-family-sans-serif: 'Open-Dyslexic', sans-serif;
 
 /*-- scss:mixins --*/
@@ -23,10 +26,18 @@ figcaption.table.quarto-float-caption.quarto-float-tbl {
   background-color: rgba(256,256,256,0.8);
 }
 
-.center-xy {
+.reveal .center-xy {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.reveal .activity-background {
+  background-color: $activity-color !important;
+}
+
+.reveal .has-dark-background .code-with-filename-file {
+  color: $body-color;
 }

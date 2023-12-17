@@ -62,7 +62,6 @@ website:
 format:
   html:
     theme: [cosmo, styles/theme.scss]
-    code-copy: true
     css: styles/styles.css
     toc: true
 
