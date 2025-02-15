@@ -5,3 +5,6 @@ options(
 
 # Use renv
 source("renv/activate.R")
+
+# Set error handler to rlang
+# globalCallingHandlers(error = rlang::entrace)
