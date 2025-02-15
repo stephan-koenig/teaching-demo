@@ -1,9 +1,7 @@
 Depends:
-  httpgd,
   languageserver
 Suggests:
   devtools,
-  languageserver,
   miniUI,
   reprex,
   skimr,
