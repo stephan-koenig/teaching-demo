@@ -46,7 +46,7 @@ schedule <-
   left_join(resources, by = join_by(id), na_matches = "never")
 ```
 
-::: columns
+:::::: columns
 ::: {.column width="75%"}
 Welcome to the webpage for the seminar **"First steps into reproducible bioinformatics"**!
 
@@ -57,9 +57,9 @@ For context, this talk assumes that students in MICB 2XX: Data science have gain
 :::
 
 ::: {.column width="20%"}
-{{< qrcode https://bit.ly/td-website >}}
+{{< qrcode https://skng.de/mbim/td-website >}}
 :::
-:::
+::::::
 
 ```{r}
 #| label: schedule

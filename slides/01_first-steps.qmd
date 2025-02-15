@@ -14,7 +14,7 @@ format:
     theme: [default, ../styles/theme.scss]
     chalkboard: true
     controls: true
-    footer: "[bit.ly/td-website](https://bit.ly/td-website)"
+    footer: "[skng.de/mbim/td-website](https://skng.de/mbim/td-website)"
 
 filters:
   - include-code-files
@@ -131,7 +131,7 @@ How would ensure the correct reporting of your analysis?
 -   Review the report of a fellow student.
 -   Discover how symbols and text structure the document.
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 ### Plain text
 
@@ -146,7 +146,7 @@ How would ensure the correct reporting of your analysis?
 
 </iframe>
 :::
-:::
+:::::
 
 ::: notes
 -   For our worksheet, we will act like we review the analysis of a friend.
@@ -177,17 +177,17 @@ You are constantly practicing a skill you will need for coding all the time: rea
 -   Used in many [apps and services](https://www.markdownguide.org/tools/), for example {{< fa brands discord title="Discord" >}} {{< fa brands slack title="Slack" >}} {{< fa brands github title= "GitHub" >}}.
 :::
 
-+-------------------------------------+
-| Markdown syntax                     |
-+=====================================+
-| # \# Heading 1                      |
-+-------------------------------------+
-| ## \## Heading 2                    |
-+-------------------------------------+
-| **\*\*strong\*\***                  |
-+-------------------------------------+
-| *\*emphasized\**                    |
-+-------------------------------------+
++--------------------+
+| Markdown syntax    |
++====================+
+| # \# Heading 1     |
++--------------------+
+| ## \## Heading 2   |
++--------------------+
+| **\*\*strong\*\*** |
++--------------------+
+| *\*emphasized\**   |
++--------------------+
 
 ## How Quarto works {background-image="https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/c2ef45f1-4a68-4c7a-a43f-bdcf0f90e104_rw_3840.png?h=783eba914284e5adfb9feadcf4ba5f1e" background-size="contain" aria-label="A schematic representing the multi-language input (e.g. Python, R, Observable, Julia) and multi-format output (e.g. PDF, html, Word documents, and more) versatility of Quarto."}
 
